@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="ko" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>포트폴리오 | Your Name</title>
+  <meta name="description" content="신규 개발자를 위한 심플하고 세련된 Tailwind CSS 포트폴리오 템플릿" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // Tailwind config (optional fine‑tuning)
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ["Pretendard", "Inter", "ui-sans-serif", "system-ui", "Apple SD Gothic Neo", "-apple-system", "Segoe UI", "Roboto", "Noto Sans KR", "Helvetica", "Arial", "sans-serif"],
+          },
+          boxShadow: {
+            soft: '0 10px 30px -12px rgba(0,0,0,0.25)'
+          }
+        }
+      }
+    }
+  </script>
+  <!-- Pretendard CDN (한글 가독성 향상) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    /* 화면 전환 시 부드러운 페이드 */
+    .fade-enter { opacity: 0; transform: translateY(8px); }
+    .fade-enter-active { opacity: 1; transform: translateY(0); transition: all .5s ease; }
+  </style>
+</head>
+<body class="bg-neutral-50 text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100 antialiased">
+  <!-- ===== Top Navbar ===== -->
+  <header class="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-white/60 bg-white/80 dark:bg-neutral-900/70 border-b border-black/5 dark:border-white/10">
+    <nav class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="flex h-16 items-center justify-between">
+        <a href="#home" class="font-extrabold tracking-tight text-lg">Your<span class="text-blue-600 dark:text-blue-400">Name</span></a>
+        <div class="hidden gap-6 md:flex text-sm font-medium">
+          <a href="#projects" class="hover:text-blue-600 dark:hover:text-blue-400">프로젝트</a>
+          <a href="#skills" class="hover:text-blue-600 dark:hover:text-blue-400">스킬</a>
+          <a href="#experience" class="hover:text-blue-600 dark:hover:text-blue-400">경력</a>
+          <a href="#contact" class="hover:text-blue-600 dark:hover:text-blue-400">연락</a>
+        </div>
+        <div class="flex items-center gap-2">
+          <button id="themeToggle" aria-label="Toggle dark mode" class="rounded-lg border border-black/10 dark:border-white/10 px-2.5 py-1.5 text-sm hover:bg-black/5 dark:hover:bg-white/5">
+            🌙
+          </button>
+          <button id="menuBtn" class="md:hidden rounded-lg border border-black/10 dark:border-white/10 px-2 py-1 text-sm">메뉴</button>
+        </div>
+      </div>
+      <div id="mobileMenu" class="md:hidden hidden pb-3">
+        <div class="mt-2 grid gap-2 text-sm">
+          <a class="rounded px-3 py-2 hover:bg-black/5 dark:hover:bg-white/5" href="#projects">프로젝트</a>
+          <a class="rounded px-3 py-2 hover:bg-black/5 dark:hover:bg-white/5" href="#skills">스킬</a>
+          <a class="rounded px-3 py-2 hover:bg-black/5 dark:hover:bg-white/5" href="#experience">경력</a>
+          <a class="rounded px-3 py-2 hover:bg-black/5 dark:hover:bg-white/5" href="#contact">연락</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ===== Hero ===== -->
+  <section id="home" class="relative isolate overflow-hidden">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-20 sm:py-24">
+      <div class="grid items-center gap-10 md:grid-cols-2">
+        <div class="fade-enter">
+          <span class="inline-flex items-center gap-2 rounded-full border border-black/10 dark:border-white/10 bg-white/60 dark:bg-neutral-900/60 px-3 py-1 text-xs">
+            <span class="size-1.5 rounded-full bg-emerald-500"></span> 프론트엔드·백엔드 신입 개발자
+          </span>
+          <h1 class="mt-4 text-4xl font-extrabold tracking-tight sm:text-5xl">안녕하세요, <span class="text-blue-600 dark:text-blue-400">Your Name</span> 입니다.</h1>
+          <p class="mt-4 text-neutral-600 dark:text-neutral-300 leading-relaxed">사용자 경험을 중시하는 웹 서비스를 만듭니다. React(Next.js)와 FastAPI를 활용해 빠르고 안정적인 제품을 구축합니다.</p>
+          <div class="mt-6 flex flex-wrap gap-3">
+            <a href="#projects" class="inline-flex items-center justify-center rounded-xl bg-blue-600 px-4 py-2.5 text-white shadow-soft hover:brightness-110">프로젝트 보기</a>
+            <a href="#contact" class="inline-flex items-center justify-center rounded-xl border border-black/10 dark:border-white/10 px-4 py-2.5 hover:bg-black/5 dark:hover:bg-white/5">연락하기</a>
+          </div>
+        </div>
+        <div class="fade-enter">
+          <div class="mx-auto aspect-[4/3] w-full max-w-md overflow-hidden rounded-3xl border border-black/10 dark:border-white/10 shadow-soft bg-gradient-to-br from-blue-100 via-white to-indigo-100 dark:from-neutral-800 dark:via-neutral-900 dark:to-neutral-800 flex items-center justify-center">
+            <div class="text-center p-8">
+              <div class="mx-auto mb-4 size-20 rounded-full bg-white/80 dark:bg-neutral-800/80 border border-black/10 dark:border-white/10 flex items-center justify-center text-3xl">👨‍💻</div>
+              <p class="text-sm text-neutral-600 dark:text-neutral-300">사진(프로필)을 여기에 배치하거나, 아이콘을 그대로 사용하세요.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Projects ===== -->
+  <section id="projects" class="py-16 sm:py-20">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-10 flex items-end justify-between">
+        <div>
+          <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight">대표 프로젝트</h2>
+          <p class="mt-2 text-sm text-neutral-600 dark:text-neutral-300">실제 동작 링크와 소스 코드 링크를 함께 보여주세요.</p>
+        </div>
+        <a href="#" class="hidden sm:inline text-sm text-blue-600 dark:text-blue-400 hover:underline">전체 보기 →</a>
+      </div>
+
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <!-- Project Card -->
+        <article class="group overflow-hidden rounded-2xl border border-black/10 dark:border-white/10 bg-white dark:bg-neutral-900 shadow-soft">
+          <div class="aspect-video bg-gradient-to-br from-indigo-200 via-white to-blue-100 dark:from-neutral-800 dark:via-neutral-900 dark:to-neutral-800"></div>
+          <div class="p-5">
+            <h3 class="font-semibold text-lg">프로젝트 이름 #1</h3>
+            <p class="mt-2 text-sm text-neutral-600 dark:text-neutral-300 line-clamp-3">프로젝트의 간단 설명. 어떤 문제를 해결했고, 어떤 기술을 사용했는지 1~2문장으로.</p>
+            <div class="mt-4 flex flex-wrap gap-2 text-xs">
+              <span class="rounded-full bg-black/5 dark:bg-white/10 px-2 py-1">React</span>
+              <span class="rounded-full bg-black/5 dark:bg-white/10 px-2 py-1">TypeScript</span>
+              <span class="rounded-full bg-black/5 dark:bg-white/10 px-2 py-1">Tailwind</span>
+            </div>
+            <div class="mt-4 flex gap-3 text-sm">
+              <a class="text-blue-600 dark:text-blue-400 hover:underline" href="#" target="_blank" rel="noreferrer">Live</a>
+              <a class="text-neutral-600 dark:text-neutral-300 hover:underline" href="#" target="_blank" rel="noreferrer">GitHub</a>
+            </div>
+          </div>
+        </article>
+        
+        <article class="group overflow-hidden rounded-2xl border border-black/10 dark:border-white/10 bg-white dark:bg-neutral-900 shadow-soft">
+          <div class="aspect-video bg-gradient-to-br from-emerald-200 via-white to-teal-100 dark:from-neutral-800 dark:via-neutral-900 dark:to-neutral-800"></div>
+          <div class="p-5">
+            <h3 class="font-semibold text-lg">프로젝트 이름 #2</h3>
+            <p class="mt-2 text-sm text-neutral-600 dark:text-neutral-300 line-clamp-3">핵심 기능과 성과를 수치로: DAU, 로딩시간 40% 단축, 비용 20% 절감 등.</p>
+            <div class="mt-4 flex flex-wrap gap-2 text-xs">
+              <span class="rounded-full bg-black/5 dark:bg-white/10 px-2 py-1">Next.js</span>
+              <span class="rounded-full bg-black/5 dark:bg-white/10 px-2 py-1">FastAPI</span>
+              <span class="rounded-full bg-black/5 dark:bg-white/10 px-2 py-1">PostgreSQL</span>
+            </div>
+            <div class="mt-4 flex gap-3 text-sm">
+              <a class="text-blue-600 dark:text-blue-400 hover:underline" href="#" target="_blank" rel="noreferrer">Live</a>
+              <a class="text-neutral-600 dark:text-neutral-300 hover:underline" href="#" target="_blank" rel="noreferrer">GitHub</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="group overflow-hidden rounded-2xl border border-black/10 dark:border-white/10 bg-white dark:bg-neutral-900 shadow-soft">
+          <div class="aspect-video bg-gradient-to-br from-rose-200 via-white to-amber-100 dark:from-neutral-800 dark:via-neutral-900 dark:to-neutral-800"></div>
+          <div class="p-5">
+            <h3 class="font-semibold text-lg">프로젝트 이름 #3</h3>
+            <p class="mt-2 text-sm text-neutral-600 dark:text-neutral-300 line-clamp-3">간단한 설명. 프로젝트에서 본인 역할과 책임을 명확히.</p>
+            <div class="mt-4 flex flex-wrap gap-2 text-xs">
+              <span class="rounded-full bg-black/5 dark:bg-white/10 px-2 py-1">Vue</span>
+              <span class="rounded-full bg-black/5 dark:bg-white/10 px-2 py-1">Firebase</span>
+              <span class="rounded-full bg-black/5 dark:bg-white/10 px-2 py-1">Cloud Run</span>
+            </div>
+            <div class="mt-4 flex gap-3 text-sm">
+              <a class="text-blue-600 dark:text-blue-400 hover:underline" href="#" target="_blank" rel="noreferrer">Live</a>
+              <a class="text-neutral-600 dark:text-neutral-300 hover:underline" href="#" target="_blank" rel="noreferrer">GitHub</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Skills ===== -->
+  <section id="skills" class="py-16 sm:py-20 bg-white/60 dark:bg-neutral-900/60 border-y border-black/5 dark:border-white/10">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight">스킬</h2>
+      <p class="mt-2 text-sm text-neutral-600 dark:text-neutral-300">업무에서 바로 쓸 수 있는 기술과 도구들</p>
+
+      <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div class="rounded-2xl border border-black/10 dark:border-white/10 p-5 bg-white dark:bg-neutral-900">
+          <h3 class="font-semibold">프론트엔드</h3>
+          <div class="mt-3 flex flex-wrap gap-2 text-xs">
+            <span class="badge">HTML</span><span class="badge">CSS</span><span class="badge">JavaScript</span>
+            <span class="badge">TypeScript</span><span class="badge">React</span><span class="badge">Next.js</span>
+            <span class="badge">Tailwind</span>
+          </div>
+        </div>
+        <div class="rounded-2xl border border-black/10 dark:border-white/10 p-5 bg-white dark:bg-neutral-900">
+          <h3 class="font-semibold">백엔드</h3>
+          <div class="mt-3 flex flex-wrap gap-2 text-xs">
+            <span class="badge">Node.js</span><span class="badge">Express</span><span class="badge">Python</span>
+            <span class="badge">FastAPI</span><span class="badge">PostgreSQL</span><span class="badge">MongoDB</span>
+          </div>
+        </div>
+        <div class="rounded-2xl border border-black/10 dark:border-white/10 p-5 bg-white dark:bg-neutral-900">
+          <h3 class="font-semibold">DevOps & 기타</h3>
+          <div class="mt-3 flex flex-wrap gap-2 text-xs">
+            <span class="badge">Git</span><span class="badge">Docker</span><span class="badge">Vercel</span>
+            <span class="badge">Render</span><span class="badge">AWS</span><span class="badge">Figma</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Experience / Education ===== -->
+  <section id="experience" class="py-16 sm:py-20">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight">경력 · 교육</h2>
+      <ol class="mt-6 relative border-s border-black/10 dark:border-white/10">
+        <!-- Item -->
+        <li class="ms-6 pb-8">
+          <span class="absolute -start-3 mt-1 size-6 rounded-full bg-blue-600 ring-8 ring-white dark:ring-neutral-950"></span>
+          <h3 class="font-semibold">ABC 스타트업 — 프론트엔드 인턴</h3>
+          <time class="block text-xs text-neutral-500 dark:text-neutral-400">2025.03 — 2025.08</time>
+          <p class="mt-2 text-sm text-neutral-700 dark:text-neutral-300">디자인 시스템 구축, 페이지 로딩 속도 35% 개선, 재사용 가능한 컴포넌트 도입.</p>
+        </li>
+        <li class="ms-6 pb-8">
+          <span class="absolute -start-3 mt-1 size-6 rounded-full bg-emerald-600 ring-8 ring-white dark:ring-neutral-950"></span>
+          <h3 class="font-semibold">컴퓨터공학 전공 (학사)</h3>
+          <time class="block text-xs text-neutral-500 dark:text-neutral-400">2021 — 2025</time>
+          <p class="mt-2 text-sm text-neutral-700 dark:text-neutral-300">알고리즘, 데이터베이스, 네트워크, 클라우드 기초 이수.</p>
+        </li>
+        <li class="ms-6">
+          <span class="absolute -start-3 mt-1 size-6 rounded-full bg-purple-600 ring-8 ring-white dark:ring-neutral-950"></span>
+          <h3 class="font-semibold">프리랜서 — 웹 서비스 제작</h3>
+          <time class="block text-xs text-neutral-500 dark:text-neutral-400">진행 중</time>
+          <p class="mt-2 text-sm text-neutral-700 dark:text-neutral-300">소상공인 랜딩페이지, 간단한 웹앱 제작, 유지보수.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ===== Contact ===== -->
+  <section id="contact" class="py-16 sm:py-20 bg-white/60 dark:bg-neutral-900/60 border-y border-black/5 dark:border-white/10">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight">함께 일해요</h2>
+      <p class="mt-2 text-sm text-neutral-600 dark:text-neutral-300">프로젝트·협업 문의는 아래로 보내주세요. 보통 24시간 내 회신합니다.</p>
+      <div class="mt-8 text-left">
+        <form class="grid gap-4">
+          <div class="grid gap-2">
+            <label class="text-sm" for="name">이름</label>
+            <input id="name" type="text" placeholder="홍길동" class="w-full rounded-xl border border-black/10 dark:border-white/10 bg-white dark:bg-neutral-900 px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+          </div>
+          <div class="grid gap-2">
+            <label class="text-sm" for="email">이메일</label>
+            <input id="email" type="email" placeholder="you@example.com" class="w-full rounded-xl border border-black/10 dark:border-white/10 bg-white dark:bg-neutral-900 px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+          </div>
+          <div class="grid gap-2">
+            <label class="text-sm" for="msg">메시지</label>
+            <textarea id="msg" rows="4" placeholder="프로젝트 내용을 간단히 적어주세요" class="w-full rounded-xl border border-black/10 dark:border-white/10 bg-white dark:bg-neutral-900 px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+          </div>
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-3 text-sm text-neutral-600 dark:text-neutral-300">
+              <a href="mailto:hello@example.com" class="hover:underline">hello@example.com</a>
+              <span class="select-none">·</span>
+              <a href="https://github.com/yourname" target="_blank" rel="noreferrer" class="hover:underline">GitHub</a>
+              <span class="select-none">·</span>
+              <a href="https://linkedin.com/in/yourname" target="_blank" rel="noreferrer" class="hover:underline">LinkedIn</a>
+            </div>
+            <button type="button" class="inline-flex items-center justify-center rounded-xl bg-blue-600 px-5 py-2.5 text-white shadow-soft hover:brightness-110">보내기</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer class="py-10">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-neutral-600 dark:text-neutral-400">
+        <p>© <span id="year"></span> Your Name. All rights reserved.</p>
+        <div class="flex items-center gap-4">
+          <a href="#home" class="hover:underline">맨 위로</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== Utilities ===== -->
+  <script>
+    // 초기 페이드 인
+    document.querySelectorAll('.fade-enter').forEach(el => {
+      requestAnimationFrame(() => el.classList.add('fade-enter-active'));
+    });
+
+    // 다크모드 토글 & 저장
+    const themeToggle = document.getElementById('themeToggle');
+    const storedTheme = localStorage.getItem('theme');
+    if (storedTheme === 'dark' || (!storedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    }
+    themeToggle.addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark');
+      localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+    });
+
+    // 모바일 메뉴
+    const btn = document.getElementById('menuBtn');
+    const menu = document.getElementById('mobileMenu');
+    btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+
+    // 올해 연도
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+  <!-- Small utility classes -->
+  <script>
+    // Tailwind에서 재사용할 작은 뱃지 컴포넌트 느낌의 유틸 (임베디드 스타일)
+    document.addEventListener('DOMContentLoaded', () => {
+      const style = document.createElement('style');
+      style.textContent = `.badge{display:inline-flex;align-items:center;gap:.375rem;background:rgb(0 0 0 / .05);color:inherit;padding:.375rem .625rem;border-radius:9999px;border:1px solid rgb(0 0 0 / .08)}.dark .badge{background:rgb(255 255 255 / .08);border-color:rgb(255 255 255 / .12)}`;
+      document.head.appendChild(style);
+    });
+  </script>
+</body>
+</html>
