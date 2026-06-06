@@ -35,6 +35,8 @@ h1,h2,p{margin:0;text-align:center}h1{font-size:clamp(30px,5.2vw,76px);line-heig
 .cycle{display:grid;grid-template-columns:1fr;gap:10px;font-size:clamp(26px,4vw,58px);text-align:center}.cycle .item{opacity:0;animation:cycle 8s infinite}.cycle .item:nth-child(2){animation-delay:2s}.cycle .item:nth-child(3){animation-delay:4s}.cycle .item:nth-child(4){animation-delay:6s}@keyframes cycle{0%,20%{opacity:1;transform:scale(1)}28%,100%{opacity:.18;transform:scale(.92)}}
 .void-word{position:absolute;inset:0;display:grid;place-items:center;font-size:clamp(48px,9vw,138px);color:var(--paper);opacity:0;animation:voidword 9s infinite}.void-word:nth-child(2){animation-delay:3s}.void-word:nth-child(3){animation-delay:6s}@keyframes voidword{0%,12%{opacity:0;filter:blur(8px)}24%,34%{opacity:1;filter:blur(0)}48%,100%{opacity:0;filter:blur(10px)}}
 .modern-title{position:relative;z-index:2;transform:translateY(-8px)}.modern-title .sub{margin-top:14px}.cards{position:absolute;inset:0}.modern-card{position:absolute;padding:18px 24px;border:1px solid rgba(196,154,61,.38);background:rgba(239,229,207,.08);backdrop-filter:blur(6px);font-size:clamp(18px,2vw,31px);box-shadow:0 15px 45px rgba(0,0,0,.2);animation:float 5.5s ease-in-out infinite}.modern-card:nth-child(1){left:9%;top:21%}.modern-card:nth-child(2){right:5%;top:16%;animation-delay:.5s}.modern-card:nth-child(3){left:12%;bottom:20%;animation-delay:1s}.modern-card:nth-child(4){right:26%;bottom:12%;animation-delay:1.4s}.modern-card:nth-child(5){right:4%;bottom:16%;animation-delay:2s}@keyframes float{50%{transform:translateY(-18px)}}
+.lesson-title{position:absolute;top:clamp(28px,4.4vw,68px);left:0;right:0;z-index:4}.lesson-title h2{font-size:clamp(28px,4vw,58px)}.lesson-title .sub{max-width:760px;margin:14px auto 0}.door-scene{position:absolute;inset:0;display:grid;place-items:center;z-index:-1}.gold-door{position:relative;width:min(34vw,330px);height:min(52vh,390px);perspective:900px}.door-panel{position:absolute;top:0;width:50%;height:100%;background:linear-gradient(115deg,#7d541b,#f0d178 42%,#8c5b1e 100%);border:1px solid rgba(255,231,141,.75);box-shadow:inset 0 0 38px rgba(255,248,210,.24),0 0 50px rgba(196,154,61,.28);transition:transform 1s}.door-panel.left{left:0;transform-origin:left center}.door-panel.right{right:0;transform-origin:right center}.door-word{position:absolute;inset:0;display:grid;place-items:center;font-size:clamp(28px,4vw,58px);color:#2a1b08;text-shadow:0 1px 0 rgba(255,244,180,.8);z-index:2}.active .door-panel.left{animation:openleft 3.5s 1.4s forwards}.active .door-panel.right{animation:openright 3.5s 1.4s forwards}.active .door-word{animation:fadeaway 2.2s 1.1s forwards}.door-light{position:absolute;inset:18% 36%;background:radial-gradient(ellipse,rgba(240,229,194,.75),rgba(176,199,199,.25) 45%,transparent 70%);filter:blur(18px);opacity:0}.active .door-light{animation:dawn 4s 2s forwards}.relic{position:absolute;font-size:clamp(22px,3vw,44px);filter:drop-shadow(0 0 12px rgba(240,209,120,.6));animation:float 5s ease-in-out infinite}.relic:nth-child(1){left:16%;top:27%}.relic:nth-child(2){right:18%;top:31%;animation-delay:.5s}.relic:nth-child(3){left:24%;bottom:23%;animation-delay:1s}.relic:nth-child(4){right:23%;bottom:24%;animation-delay:1.5s}.active .relic{animation:scatterdust 3.2s 1.5s forwards}.door-message{position:absolute;bottom:clamp(56px,7vw,96px);left:50%;width:min(86%,850px);transform:translateX(-50%);font-size:clamp(22px,2.8vw,43px);line-height:1.38;opacity:0;text-align:center}.active .door-message{animation:rise .9s 3.4s forwards}@keyframes openleft{to{transform:rotateY(-74deg)}}@keyframes openright{to{transform:rotateY(74deg)}}@keyframes fadeaway{to{opacity:0;filter:blur(8px)}}@keyframes dawn{to{opacity:1;inset:8% 24%;filter:blur(8px)}}@keyframes scatterdust{55%{opacity:.75}100%{opacity:0;transform:translate(var(--dx),var(--dy)) scale(.45) rotate(25deg);filter:blur(9px)}}.road-scene{position:absolute;inset:24% 5% 18%;display:grid;place-items:center;z-index:-1}.road{position:relative;width:min(86vw,920px);height:min(42vh,310px)}.road::before{content:"";position:absolute;left:9%;right:13%;top:52%;height:8px;transform:none;background:linear-gradient(90deg,var(--gold),rgba(239,229,207,.18));box-shadow:0 0 28px rgba(196,154,61,.25)}.road-node{position:absolute;top:43%;transform:translate(-50%,-50%);padding:9px 18px;border:1px solid rgba(240,209,120,.45);background:rgba(20,18,14,.82);color:var(--paper);font-size:clamp(16px,1.55vw,23px);white-space:nowrap}.road-node.n1{left:12%}.road-node.n2{left:43%}.road-node.n3{left:68%}.traveler{position:absolute;left:10%;top:52%;width:18px;height:18px;border-radius:50%;background:var(--gold-bright);box-shadow:0 0 20px rgba(240,209,120,.9);opacity:0;transform:translate(-50%,-50%)}.active .traveler{animation:walkroad 5s 1s forwards}.road-token{position:absolute;left:var(--left);top:var(--top);color:var(--gold-bright);font-size:clamp(19px,2vw,31px);font-weight:700;opacity:0;text-shadow:0 0 14px rgba(240,209,120,.55);white-space:nowrap}.active .road-token{animation:tokenpass 4.4s var(--delay) forwards}.end-door{position:absolute;right:7%;bottom:2%;width:96px;height:126px;border:1px solid rgba(240,209,120,.5);background:linear-gradient(110deg,#3a2915,#b98b33);box-shadow:0 0 30px rgba(196,154,61,.25)}.active .end-door{animation:doorfade 1.2s 5.2s forwards}.road-message{position:absolute;left:50%;bottom:clamp(18px,2.4vw,34px);width:min(84%,760px);transform:translateX(-50%);font-size:clamp(18px,2.05vw,30px);line-height:1.35;opacity:0;text-align:center;z-index:4}.active .road-message{animation:rise .8s 5.4s forwards}@keyframes walkroad{0%{opacity:1;left:10%}46%{left:43%}86%,100%{opacity:1;left:68%}}@keyframes tokenpass{0%,18%{opacity:0;transform:translateY(12px)}30%,86%{opacity:1;transform:none;filter:none}100%{opacity:.92;transform:none;filter:none}}@keyframes doorfade{to{opacity:.22;filter:blur(4px)}}.mirror-scene{position:absolute;inset:0;display:grid;place-items:center;z-index:-1}.mirror-door{position:relative;width:min(36vw,350px);height:min(56vh,410px);border-radius:48% 48% 10px 10px;border:2px solid rgba(216,213,200,.42);background:rgba(28,28,26,.86);box-shadow:inset 0 0 34px rgba(0,0,0,.62),0 18px 46px rgba(0,0,0,.45);overflow:hidden}.mirror-name,.viewer-shape{position:absolute;inset:0;display:grid;place-items:center;font-size:clamp(32px,5vw,70px)}.mirror-name{color:rgba(239,229,207,.88);animation:mirrorname 5.5s forwards}.viewer-shape{opacity:0}.viewer-shape::before{content:"";width:34%;height:54%;border-radius:50% 50% 42% 42%;background:#77736a;box-shadow:none}.active .viewer-shape{animation:viewer 5.5s 1.5s forwards}.mirror-question{position:absolute;bottom:clamp(48px,6vw,86px);font-size:clamp(22px,2.8vw,42px);text-align:center;color:var(--paper);opacity:0}.active .mirror-question{animation:rise .8s 2.4s forwards}@keyframes mirrorname{0%,45%{opacity:1;filter:blur(0)}75%,100%{opacity:0;filter:blur(10px)}}@keyframes viewer{0%,30%{opacity:0;filter:blur(8px)}60%,100%{opacity:.95;filter:blur(0)}}.three-doors{position:relative;display:flex;gap:clamp(14px,3vw,40px);align-items:center;justify-content:center;margin-top:34px}.mini-door{width:clamp(112px,14vw,170px);height:clamp(150px,20vw,235px);border:1px solid rgba(240,209,120,.55);border-radius:44% 44% 8px 8px;background:linear-gradient(135deg,#332514,#bf9340);display:grid;place-items:center;text-align:center;padding:18px;color:var(--paper);box-shadow:0 0 32px rgba(196,154,61,.2);animation:float 5s ease-in-out infinite}.mini-door:nth-child(2){animation-delay:.5s}.mini-door:nth-child(3){animation-delay:1s}.active .mini-door{animation:merge 3.2s 1.4s forwards}.synthesis{margin-top:34px;font-size:clamp(24px,3.2vw,50px);line-height:1.35;opacity:0}.active .synthesis{animation:rise .9s 3.8s forwards}@keyframes merge{to{transform:translateX(var(--mx)) scale(.92);opacity:.35;filter:blur(3px)}}
+.arch-portal{position:relative;width:min(34vw,330px);height:min(53vh,400px);border-radius:48% 48% 8px 8px;background:#7b5a24;border:2px solid rgba(240,209,120,.55);box-shadow:0 22px 42px rgba(0,0,0,.34);overflow:hidden}.arch-portal .portal-word{display:none}.portal-zoom{transform-origin:50% 58%}.end-door.arch-portal{position:absolute;right:2%;top:22%;width:92px;height:122px}.active .end-door.arch-portal{animation:none}.mirror-door.portal-zoom{transform-origin:50% 55%}.mini-door.portal-zoom{border-radius:48% 48% 8px 8px}
 .reflect{position:relative;width:min(78vmin,760px);height:min(62vmin,600px);display:grid;place-items:center}.me{font-size:clamp(66px,11vw,148px);color:var(--ink)}.desire{position:absolute;font-size:clamp(18px,2vw,30px);color:rgba(25,24,19,.72);animation:away 7s forwards infinite}.desire:nth-child(2){top:22%;left:20%}.desire:nth-child(3){top:22%;right:18%;animation-delay:.25s}.desire:nth-child(4){bottom:20%;left:22%;animation-delay:.5s}.desire:nth-child(5){bottom:20%;right:22%;animation-delay:.75s}@keyframes away{0%,25%{transform:none;opacity:1}80%,100%{transform:translate(var(--dx),var(--dy));opacity:0}}
 .quote{max-width:920px;font-size:clamp(24px,3.2vw,52px);line-height:1.42;text-align:center}.quote .thin{font-weight:400;color:rgba(239,229,207,.74)}
 .ui{position:absolute;left:0;right:0;bottom:0;height:46px;z-index:50;display:flex;align-items:center;gap:16px;padding:0 clamp(18px,3vw,42px);color:rgba(239,229,207,.78);font:14px/1.1 Arial,"Malgun Gothic",sans-serif;pointer-events:none}.bar{height:3px;flex:1;background:rgba(239,229,207,.18);overflow:hidden}.fill{height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--gold-bright));transition:width .5s ease}.hint{opacity:.62}.counter{min-width:58px;text-align:right}.nav{position:absolute;right:clamp(16px,2vw,32px);top:clamp(14px,2vw,24px);z-index:60;color:rgba(239,229,207,.62);font:13px Arial,"Malgun Gothic",sans-serif}
@@ -81,9 +83,24 @@ h1,h2,p{margin:0;text-align:center}h1{font-size:clamp(30px,5.2vw,76px);line-heig
     <article class="slide white" data-title="질문">
       <h1>정말<br>행복해졌는가?</h1>
     </article>
-    <article class="slide white" data-title="자기 성찰">
-      <div class="reflect"><div class="me">나</div><div class="desire" style="--dx:-210px;--dy:-90px">명예</div><div class="desire" style="--dx:210px;--dy:-100px">돈</div><div class="desire" style="--dx:-230px;--dy:100px">외모</div><div class="desire" style="--dx:230px;--dy:100px">학벌</div></div>
-      <p class="caption" style="color:rgba(25,24,19,.65)">멀어지는 이름들, 남는 질문</p>
+    <article class="slide dark gateway" data-title="첫 번째 문">
+      <div class="lesson-title"><h2>집착을 내려놓기</h2><p class="sub">외적 성취에 대한 집착은<br>오히려 고통의 원인이 된다.</p></div>
+      <div class="door-scene"><div class="door-light"></div><span class="relic" style="left:15%;top:25%;--dx:-130px;--dy:-90px">♛</span><span class="relic" style="right:17%;top:30%;--dx:130px;--dy:-80px">◆</span><span class="relic" style="left:24%;bottom:24%;--dx:-120px;--dy:90px">●</span><span class="relic" style="right:23%;bottom:24%;--dx:120px;--dy:90px">▣</span><div class="arch-portal portal-zoom"></div></div>
+      <p class="door-message">가진 것이 괴로움이 아니라<br>놓지 못하는 마음이 괴로움이다.</p>
+    </article>
+    <article class="slide gateway" data-title="두 번째 문">
+      <div class="lesson-title"><h2>경험을 통해 배우기</h2><p class="sub">삶을 회피하는 것이 아니라<br>삶을 살아낸 뒤에 본질을 깨닫는다.</p></div>
+      <div class="road-scene"><div class="road"><div class="road-node n1">성진</div><div class="road-node n2">양소유</div><div class="road-node n3">깨달은 성진</div><div class="traveler"></div><span class="road-token" style="--left:20%;--top:12%;--delay:1.2s">권력</span><span class="road-token" style="--left:53%;--top:74%;--delay:2s">사랑</span><span class="road-token" style="--left:30%;--top:75%;--delay:2.8s">부귀영화</span><div class="end-door arch-portal portal-zoom"></div><p class="road-message">깨달음은 경험을 통과한 자에게 찾아온다.</p></div></div>
+    </article>
+    <article class="slide black gateway" data-title="세 번째 문">
+      <div class="lesson-title"><h2>자기 성찰</h2><p class="sub">꿈에서 깨어나는 것은<br>자기 자신을 돌아보는 것이다.</p></div>
+      <div class="mirror-scene"><div class="mirror-door portal-zoom"><div class="mirror-name">양소유</div></div></div>
+      <p class="mirror-question">나는 지금 무엇을 위해 살아가고 있는가?</p>
+    </article>
+    <article class="slide dark gateway" data-title="세 문 종합">
+      <h2>양소유가 남긴 세 가지 깨달음</h2>
+      <div class="three-doors"><div class="mini-door" style="--mx:112%">집착을<br>내려놓기</div><div class="mini-door portal-zoom" style="--mx:0">경험을 통해<br>배우기</div><div class="mini-door" style="--mx:-112%">자기 성찰</div></div>
+      <p class="synthesis">집착을 내려놓고<br>경험 속에서 배우며<br>끊임없이 자신을 돌아보라.</p>
     </article>
     <article class="slide dark" data-title="결론">
       <p class="quote fade-up d1">계속 변하는<br><span class="gold">'나'의 자그마한 진심</span>을 들어주고</p>
@@ -93,7 +110,7 @@ h1,h2,p{margin:0;text-align:center}h1{font-size:clamp(30px,5.2vw,76px);line-heig
     <article class="slide paper" data-title="감사합니다">
       <div class="clouds"><span></span><span></span><span></span><span></span></div><div class="ink-ring"></div><h1 class="fade-up d1">감사합니다</h1><p class="sub fade-up d2">꿈에서 깨어난 뒤에도 질문은 남는다.</p><div class="seal fade-up d3">어떻게 살 것인가</div>
     </article>
-    <div class="nav" id="title">꿈의 시작</div><div class="ui"><span class="counter" id="counter">1 / 13</span><div class="bar"><div class="fill" id="fill"></div></div><span class="hint">← → · Space · Click · Swipe</span></div>
+    <div class="nav" id="title">꿈의 시작</div><div class="ui"><span class="counter" id="counter">1 / 16</span><div class="bar"><div class="fill" id="fill"></div></div><span class="hint">← → · Space · Click · Swipe</span></div>
   </section></div>
 </main>
 <script>
@@ -123,11 +140,12 @@ h1,h2,p{margin:0;text-align:center}h1{font-size:clamp(30px,5.2vw,76px);line-heig
   function show(next){
     if(next<0 || next>=slides.length) return;
     const current = slides[index];
+    current.classList.remove('zooming');
     current.classList.remove('active');
     if (next > index) current.classList.add('prev');
     else current.classList.remove('prev');
     index = next;
-    slides.forEach((s,i)=>{ if(i!==index) s.classList.remove('active'); });
+    slides.forEach((s,i)=>{ if(i!==index) s.classList.remove('active','zooming'); });
     slides[index].classList.add('active');
     slides[index].classList.remove('prev');
     counter.textContent = `${index+1} / ${slides.length}`;
@@ -153,6 +171,13 @@ h1,h2,p{margin:0;text-align:center}h1{font-size:clamp(30px,5.2vw,76px);line-heig
 </script>
 </body>
 </html>
+
+
+
+
+
+
+
 
 
 
