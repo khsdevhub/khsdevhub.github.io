@@ -1,0 +1,158 @@
+﻿<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>양소유의 삶을 통해 본 내적 공허와 바람직한 삶의 자세</title>
+<style>
+:root{
+  --ink:#171713;
+  --ink-soft:#2c2b24;
+  --paper:#efe5cf;
+  --paper-deep:#d7c39a;
+  --gold:#c49a3d;
+  --gold-bright:#f0d178;
+  --fog:#d8d5c8;
+  --white:#f7f4ea;
+  --shadow:rgba(15,13,8,.48);
+}
+*{box-sizing:border-box} html,body{height:100%;margin:0;overflow:hidden;background:var(--ink);color:var(--paper);font-family:"Noto Serif KR","Malgun Gothic","Apple SD Gothic Neo",serif;letter-spacing:0}
+body{display:grid;place-items:center;touch-action:pan-y}
+.deck{position:relative;width:100vw;height:100vh;background:radial-gradient(circle at 50% 46%,#3a3328 0%,#1f1d18 48%,#090908 100%);overflow:hidden}
+.ratio{position:absolute;inset:0;display:grid;place-items:center;padding:clamp(14px,2vw,28px)}
+.stage{position:relative;width:min(100vw,177.78vh);height:min(56.25vw,100vh);overflow:hidden;background:#111;box-shadow:0 0 0 1px rgba(240,209,120,.18),0 32px 80px rgba(0,0,0,.42)}
+.slide{position:absolute;inset:0;padding:clamp(36px,5.3vw,86px);display:grid;align-content:center;justify-items:center;opacity:0;transform:translateX(3.5%) scale(.985);transition:opacity .75s ease,transform .75s ease;pointer-events:none;background:linear-gradient(135deg,#1a1814,#2b251c 45%,#100f0d);isolation:isolate}
+.slide.active{opacity:1;transform:none;pointer-events:auto}.slide.prev{transform:translateX(-3.5%) scale(.985)}
+.slide::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 26% 20%,rgba(240,209,120,.14),transparent 22%),radial-gradient(circle at 76% 82%,rgba(216,213,200,.12),transparent 24%),linear-gradient(90deg,rgba(255,255,255,.035),transparent 16%,transparent 84%,rgba(0,0,0,.22));z-index:-2}.slide::after{content:"";position:absolute;inset:-15%;background:repeating-linear-gradient(90deg,rgba(255,255,255,.018) 0 1px,transparent 1px 26px),repeating-linear-gradient(0deg,rgba(255,255,255,.012) 0 1px,transparent 1px 32px);mix-blend-mode:soft-light;z-index:-1}.paper{background:linear-gradient(140deg,#eadfc8,#cdb783 68%,#a98b47)}.dark{background:radial-gradient(circle at 50% 45%,#27231d,#0c0c0b 66%,#020202)}.white{background:radial-gradient(circle at 50% 45%,#fffdf6,#eee8d8 60%,#d9ccb0);color:#191813}.black{background:#030303}.mist{background:radial-gradient(circle at 48% 42%,#3a342d,#111 58%,#050505)}
+h1,h2,p{margin:0;text-align:center}h1{font-size:clamp(30px,5.2vw,76px);line-height:1.15;font-weight:700;text-shadow:0 5px 22px rgba(0,0,0,.45)}h2{font-size:clamp(28px,4.4vw,64px);font-weight:700;line-height:1.1}.sub{margin-top:clamp(16px,2.3vw,30px);font-size:clamp(14px,1.5vw,24px);line-height:1.7;color:rgba(239,229,207,.86)}.gold{color:var(--gold-bright);text-shadow:0 0 22px rgba(240,209,120,.34)}.small{font-size:clamp(13px,1.15vw,18px);opacity:.78}.caption{position:absolute;left:clamp(28px,4vw,64px);bottom:clamp(32px,4vw,64px);font-size:clamp(15px,1.5vw,24px);color:rgba(239,229,207,.72)}
+.clouds{position:absolute;inset:-12%;z-index:-1;filter:blur(8px);opacity:.68}.clouds span{position:absolute;width:32%;height:13%;border-radius:50%;background:radial-gradient(ellipse,rgba(246,243,230,.55),rgba(246,243,230,.05) 68%,transparent);animation:cloud 18s linear infinite}.clouds span:nth-child(1){top:12%;left:-8%;animation-duration:23s}.clouds span:nth-child(2){top:38%;left:16%;animation-duration:31s;opacity:.48}.clouds span:nth-child(3){top:70%;left:55%;animation-duration:27s;opacity:.36}.clouds span:nth-child(4){top:4%;left:60%;animation-duration:36s;opacity:.42}.cover-void{color:#181713;text-shadow:0 0 2px rgba(255,248,224,.75),0 3px 14px rgba(255,238,166,.45)}@keyframes cloud{from{transform:translateX(-18%) scale(1)}to{transform:translateX(42%) scale(1.12)}}
+.ink-ring{position:absolute;width:46vmin;height:46vmin;border:2px solid rgba(196,154,61,.36);border-radius:50%;box-shadow:inset 0 0 50px rgba(196,154,61,.08),0 0 70px rgba(196,154,61,.12);animation:pulse 5s ease-in-out infinite}.seal{margin-top:22px;padding:.4em .85em;border:1px solid rgba(196,154,61,.6);color:var(--gold-bright);font-size:clamp(15px,1.4vw,22px);background:rgba(20,16,11,.32)}@keyframes pulse{50%{transform:scale(1.05);opacity:.65}}
+.path{display:flex;align-items:center;gap:clamp(12px,2vw,30px);font-size:clamp(28px,4vw,62px)}.path .arrow{color:var(--gold);animation:breath 1.8s ease-in-out infinite}@keyframes breath{50%{opacity:.35;transform:translateX(5px)}}.fade-up{opacity:0;transform:translateY(18px);animation:rise .8s forwards}.active .d1{animation-delay:.15s}.active .d2{animation-delay:.45s}.active .d3{animation-delay:.75s}.active .d4{animation-delay:1.05s}.active .d5{animation-delay:1.35s}@keyframes rise{to{opacity:1;transform:none}}
+.achievements{display:grid;grid-template-columns:repeat(5,minmax(92px,1fr));gap:clamp(10px,1.4vw,18px);width:min(86%,980px);margin-top:32px}.badge{min-height:120px;border:1px solid rgba(240,209,120,.45);display:grid;place-items:center;text-align:center;font-size:clamp(18px,2vw,28px);background:linear-gradient(160deg,rgba(196,154,61,.24),rgba(255,255,255,.04));box-shadow:0 0 26px rgba(196,154,61,.12);position:relative;overflow:hidden}.badge::after{content:"달성";position:absolute;right:10px;bottom:8px;font-size:12px;color:rgba(240,209,120,.72)}
+.orbit{position:relative;width:min(74vmin,760px);height:min(74vmin,760px);display:grid;place-items:center}.center-rank{width:28%;aspect-ratio:1;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle,var(--gold-bright),var(--gold) 62%,#4e3513);color:#20160a;font-size:clamp(24px,3vw,44px);box-shadow:0 0 52px rgba(240,209,120,.52)}.wife{position:absolute;width:clamp(76px,8vw,120px);height:clamp(76px,8vw,120px);border-radius:50%;border:1px solid rgba(240,209,120,.7);display:grid;place-items:center;background:rgba(24,20,14,.7);color:var(--paper);font-size:clamp(13px,1.2vw,18px);box-shadow:0 0 22px rgba(196,154,61,.2)}
+.vanities{position:absolute;inset:0;z-index:-1;display:grid;place-items:center;pointer-events:none}.vanity{position:absolute;font-size:clamp(26px,4vw,62px);font-weight:700;color:transparent;text-shadow:none;animation:wordhold 6s ease-in-out infinite;animation-delay:var(--delay)}.vanity:nth-child(1){transform:translate(-245%,-165%)}.vanity:nth-child(2){transform:translate(190%,-150%)}.vanity:nth-child(3){transform:translate(-225%,160%)}.vanity:nth-child(4){transform:translate(205%,158%)}.vanity .piece{position:absolute;inset:0;font-style:normal;color:var(--gold-bright);opacity:0;text-shadow:0 0 18px rgba(240,209,120,.74),0 0 42px rgba(196,154,61,.44);animation:letterbreak 6s cubic-bezier(.2,.74,.13,1) infinite;animation-delay:var(--delay)}.vanity .p1{clip-path:polygon(0 0,52% 0,38% 34%,55% 53%,0 60%);--cx:-8%;--cy:-5%;--cr:-4deg;--px:-56%;--py:-74%;--pr:-24deg}.vanity .p2{clip-path:polygon(52% 0,100% 0,100% 44%,55% 53%,38% 34%);--cx:9%;--cy:-6%;--cr:5deg;--px:42%;--py:-86%;--pr:22deg}.vanity .p3{clip-path:polygon(0 60%,55% 53%,43% 100%,0 100%);--cx:-10%;--cy:7%;--cr:5deg;--px:-72%;--py:62%;--pr:28deg}.vanity .p4{clip-path:polygon(55% 53%,100% 44%,100% 100%,43% 100%);--cx:10%;--cy:8%;--cr:-6deg;--px:66%;--py:76%;--pr:-30deg}.vanity .p5{clip-path:polygon(38% 34%,55% 53%,43% 100%,28% 76%);--cx:0%;--cy:13%;--cr:2deg;--px:8%;--py:112%;--pr:12deg}@keyframes wordhold{0%,30%{opacity:0}38%,100%{opacity:1}}@keyframes letterbreak{0%,29%{opacity:0;transform:none;filter:blur(9px)}38%,55%{opacity:1;transform:none;filter:blur(0)}64%,76%{opacity:1;transform:translate(var(--cx),var(--cy)) rotate(var(--cr));filter:drop-shadow(0 0 4px rgba(5,4,3,.92))}100%{opacity:0;transform:translate(var(--px),var(--py)) rotate(var(--pr)) scale(.72);filter:blur(7px)}}
+.graveyard{position:absolute;inset:auto 0 0;height:46%;z-index:-1;background:radial-gradient(ellipse at 50% 100%,rgba(0,0,0,.92),rgba(16,15,13,.68) 38%,transparent 72%)}.grave{position:absolute;left:var(--x);bottom:var(--y);width:var(--w);height:var(--h);border-radius:18px 18px 5px 5px;background:linear-gradient(125deg,#5c574e,#2b2925 54%,#11100f);box-shadow:inset 10px 0 12px rgba(255,255,255,.08),inset -14px 0 18px rgba(0,0,0,.5),0 18px 14px rgba(0,0,0,.42);transform:rotate(var(--r));opacity:var(--o);clip-path:polygon(0 18%,7% 7%,18% 0,82% 0,93% 7%,100% 18%,100% 100%,0 100%)}.grave::before{content:"";position:absolute;left:20%;right:20%;top:26%;height:3px;background:rgba(216,213,200,.18);box-shadow:0 14px 0 rgba(216,213,200,.11),0 28px 0 rgba(216,213,200,.07)}.grave::after{content:"";position:absolute;left:-18%;right:-18%;bottom:-12px;height:18px;border-radius:50%;background:rgba(0,0,0,.45);filter:blur(3px)}.grave.small{filter:blur(.4px);opacity:.58}.grave.far{filter:blur(1.1px);opacity:.36}.fog{position:absolute;inset:auto -10% 0;height:45%;background:radial-gradient(ellipse at 30% 65%,rgba(216,213,200,.22),transparent 45%),radial-gradient(ellipse at 70% 70%,rgba(216,213,200,.16),transparent 46%);filter:blur(18px);animation:fog 7s ease-in-out infinite alternate}@keyframes fog{to{transform:translateX(7%);opacity:.55}}
+.cycle{display:grid;grid-template-columns:1fr;gap:10px;font-size:clamp(26px,4vw,58px);text-align:center}.cycle .item{opacity:0;animation:cycle 8s infinite}.cycle .item:nth-child(2){animation-delay:2s}.cycle .item:nth-child(3){animation-delay:4s}.cycle .item:nth-child(4){animation-delay:6s}@keyframes cycle{0%,20%{opacity:1;transform:scale(1)}28%,100%{opacity:.18;transform:scale(.92)}}
+.void-word{position:absolute;inset:0;display:grid;place-items:center;font-size:clamp(48px,9vw,138px);color:var(--paper);opacity:0;animation:voidword 9s infinite}.void-word:nth-child(2){animation-delay:3s}.void-word:nth-child(3){animation-delay:6s}@keyframes voidword{0%,12%{opacity:0;filter:blur(8px)}24%,34%{opacity:1;filter:blur(0)}48%,100%{opacity:0;filter:blur(10px)}}
+.modern-title{position:relative;z-index:2;transform:translateY(-8px)}.modern-title .sub{margin-top:14px}.cards{position:absolute;inset:0}.modern-card{position:absolute;padding:18px 24px;border:1px solid rgba(196,154,61,.38);background:rgba(239,229,207,.08);backdrop-filter:blur(6px);font-size:clamp(18px,2vw,31px);box-shadow:0 15px 45px rgba(0,0,0,.2);animation:float 5.5s ease-in-out infinite}.modern-card:nth-child(1){left:9%;top:21%}.modern-card:nth-child(2){right:5%;top:16%;animation-delay:.5s}.modern-card:nth-child(3){left:12%;bottom:20%;animation-delay:1s}.modern-card:nth-child(4){right:26%;bottom:12%;animation-delay:1.4s}.modern-card:nth-child(5){right:4%;bottom:16%;animation-delay:2s}@keyframes float{50%{transform:translateY(-18px)}}
+.reflect{position:relative;width:min(78vmin,760px);height:min(62vmin,600px);display:grid;place-items:center}.me{font-size:clamp(66px,11vw,148px);color:var(--ink)}.desire{position:absolute;font-size:clamp(18px,2vw,30px);color:rgba(25,24,19,.72);animation:away 7s forwards infinite}.desire:nth-child(2){top:22%;left:20%}.desire:nth-child(3){top:22%;right:18%;animation-delay:.25s}.desire:nth-child(4){bottom:20%;left:22%;animation-delay:.5s}.desire:nth-child(5){bottom:20%;right:22%;animation-delay:.75s}@keyframes away{0%,25%{transform:none;opacity:1}80%,100%{transform:translate(var(--dx),var(--dy));opacity:0}}
+.quote{max-width:920px;font-size:clamp(24px,3.2vw,52px);line-height:1.42;text-align:center}.quote .thin{font-weight:400;color:rgba(239,229,207,.74)}
+.ui{position:absolute;left:0;right:0;bottom:0;height:46px;z-index:50;display:flex;align-items:center;gap:16px;padding:0 clamp(18px,3vw,42px);color:rgba(239,229,207,.78);font:14px/1.1 Arial,"Malgun Gothic",sans-serif;pointer-events:none}.bar{height:3px;flex:1;background:rgba(239,229,207,.18);overflow:hidden}.fill{height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--gold-bright));transition:width .5s ease}.hint{opacity:.62}.counter{min-width:58px;text-align:right}.nav{position:absolute;right:clamp(16px,2vw,32px);top:clamp(14px,2vw,24px);z-index:60;color:rgba(239,229,207,.62);font:13px Arial,"Malgun Gothic",sans-serif}
+@media(max-width:760px){.ratio{padding:0}.stage{width:100vw;height:56.25vw;max-height:100vh}.slide{padding:24px}.achievements{grid-template-columns:repeat(2,1fr);width:92%;gap:8px}.badge{min-height:72px}.path{flex-direction:column;gap:8px}.path .arrow{transform:rotate(90deg)}.wife{width:58px;height:58px;font-size:11px}.ui{height:38px;font-size:12px}.hint{display:none}.quote{font-size:clamp(20px,5vw,34px)}}
+</style>
+</head>
+<body>
+<main class="deck" aria-label="구운몽 인터랙티브 발표">
+  <div class="ratio"><section class="stage" id="stage">
+    <article class="slide active paper" data-title="꿈의 시작">
+      <div class="clouds"><span></span><span></span><span></span><span></span></div><div class="ink-ring"></div>
+      <h1 class="fade-up d1">양소유의 삶을 통해 본<br><span class="cover-void">내적 공허</span>와<br>바람직한 삶의 자세</h1>
+      <p class="sub fade-up d2">이 진 · 서혜주 · 김현서</p><div class="seal fade-up d3">꿈의 시작</div>
+    </article>
+    <article class="slide" data-title="서론">
+      <h2 class="fade-up d1">성진은 꿈속에서<br><span class="gold">양소유</span>가 된다</h2>
+      <div class="path fade-up d2"><span>성진</span><span class="arrow">→</span><span>꿈</span><span class="arrow">→</span><span class="gold">양소유</span></div>
+      <p class="sub fade-up d3">『구운몽』은 꿈이라는 액자 속에서 욕망과 깨달음이 서로를 비추는 이야기다.</p>
+    </article>
+    <article class="slide" data-title="성공">
+      <h2>양소유의 성공</h2><p class="sub">세상이 말하는 완벽한 삶이 하나씩 열린다.</p>
+      <div class="achievements"><div class="badge fade-up d1">장원급제</div><div class="badge fade-up d2">승상</div><div class="badge fade-up d3">권력</div><div class="badge fade-up d4">명예</div><div class="badge fade-up d5">부</div></div>
+    </article>
+    <article class="slide" data-title="부귀영화">
+      <h2 class="caption">부귀영화의 절정</h2><div class="orbit"><div class="center-rank">승상</div></div>
+    </article>
+    <article class="slide dark" data-title="반전">
+      <div class="vanities"><span class="vanity" style="--delay:.1s">권력<i class="piece p1">권력</i><i class="piece p2">권력</i><i class="piece p3">권력</i><i class="piece p4">권력</i><i class="piece p5">권력</i></span><span class="vanity" style="--delay:.45s">명예<i class="piece p1">명예</i><i class="piece p2">명예</i><i class="piece p3">명예</i><i class="piece p4">명예</i><i class="piece p5">명예</i></span><span class="vanity" style="--delay:.8s">부<i class="piece p1">부</i><i class="piece p2">부</i><i class="piece p3">부</i><i class="piece p4">부</i><i class="piece p5">부</i></span><span class="vanity" style="--delay:1.15s">사랑<i class="piece p1">사랑</i><i class="piece p2">사랑</i><i class="piece p3">사랑</i><i class="piece p4">사랑</i><i class="piece p5">사랑</i></span></div>
+      <h2 class="fade-up d1">그는 모든 것을 가졌다.</h2><p class="sub fade-up d3 gold">그런데 왜 공허했을까?</p>
+    </article>
+    <article class="slide mist" data-title="내적 공허">
+      <div class="graveyard"><i class="grave far" style="--x:9%;--y:24%;--w:58px;--h:82px;--r:-13deg;--o:.42"></i><i class="grave small" style="--x:21%;--y:17%;--w:72px;--h:108px;--r:8deg;--o:.62"></i><i class="grave" style="--x:33%;--y:8%;--w:94px;--h:144px;--r:-6deg;--o:.82"></i><i class="grave small" style="--x:48%;--y:22%;--w:68px;--h:98px;--r:14deg;--o:.56"></i><i class="grave" style="--x:59%;--y:10%;--w:90px;--h:132px;--r:5deg;--o:.76"></i><i class="grave far" style="--x:72%;--y:26%;--w:56px;--h:78px;--r:-10deg;--o:.38"></i><i class="grave small" style="--x:82%;--y:14%;--w:76px;--h:112px;--r:11deg;--o:.54"></i><i class="grave far" style="--x:17%;--y:36%;--w:52px;--h:68px;--r:17deg;--o:.3"></i><i class="grave far" style="--x:66%;--y:38%;--w:50px;--h:64px;--r:-18deg;--o:.3"></i></div><div class="fog"></div><h2 class="fade-up d2">영웅들도 결국<br><span class="gold">무덤만 남았다.</span></h2><p class="sub fade-up d3">영원할 것 같던 권력과 명예는 안개처럼 흩어진다.</p>
+    </article>
+    <article class="slide" data-title="욕망의 순환">
+      <h2 class="caption">욕망은 끝이 아니라 다음 욕망의 시작</h2><div class="cycle"><div class="item gold">욕망</div><div class="item">성취</div><div class="item">만족</div><div class="item">새로운 욕망</div></div>
+    </article>
+    <article class="slide black" data-title="불교적 해석">
+      <div class="void-word">제행무상</div><div class="void-word">공</div><div class="void-word">일장춘몽</div>
+    </article>
+    <article class="slide" data-title="현대 사회">
+      <div class="modern-title"><h2>현대판 양소유</h2><p class="sub">오늘의 욕망도 다른 이름으로 떠다닌다.</p></div>
+      <div class="cards"><div class="modern-card">명문대</div><div class="modern-card">높은 연봉</div><div class="modern-card">취업 성공</div><div class="modern-card">SNS 좋아요</div><div class="modern-card">사회적 인정</div></div>
+    </article>
+    <article class="slide white" data-title="질문">
+      <h1>정말<br>행복해졌는가?</h1>
+    </article>
+    <article class="slide white" data-title="자기 성찰">
+      <div class="reflect"><div class="me">나</div><div class="desire" style="--dx:-210px;--dy:-90px">명예</div><div class="desire" style="--dx:210px;--dy:-100px">돈</div><div class="desire" style="--dx:-230px;--dy:100px">외모</div><div class="desire" style="--dx:230px;--dy:100px">학벌</div></div>
+      <p class="caption" style="color:rgba(25,24,19,.65)">멀어지는 이름들, 남는 질문</p>
+    </article>
+    <article class="slide dark" data-title="결론">
+      <p class="quote fade-up d1">계속 변하는<br><span class="gold">'나'의 자그마한 진심</span>을 들어주고</p>
+      <p class="quote thin fade-up d2">집착은 조금씩 내려놓는다면</p>
+      <p class="quote fade-up d3">깨달음을 얻은 척<br>흉내 정도는 내볼 수 있지 않을까.</p>
+    </article>
+    <article class="slide paper" data-title="감사합니다">
+      <div class="clouds"><span></span><span></span><span></span><span></span></div><div class="ink-ring"></div><h1 class="fade-up d1">감사합니다</h1><p class="sub fade-up d2">꿈에서 깨어난 뒤에도 질문은 남는다.</p><div class="seal fade-up d3">어떻게 살 것인가</div>
+    </article>
+    <div class="nav" id="title">꿈의 시작</div><div class="ui"><span class="counter" id="counter">1 / 13</span><div class="bar"><div class="fill" id="fill"></div></div><span class="hint">← → · Space · Click · Swipe</span></div>
+  </section></div>
+</main>
+<script>
+(() => {
+  const slides = [...document.querySelectorAll('.slide')];
+  const stage = document.getElementById('stage');
+  const counter = document.getElementById('counter');
+  const fill = document.getElementById('fill');
+  const title = document.getElementById('title');
+  let index = 0;
+  let startX = 0;
+
+  function placeOrbit(){
+    const orbit = document.querySelector('.orbit');
+    if(!orbit || orbit.dataset.ready) return;
+    ['정경패','가춘운','계섬월','적경홍','심요연','백능파','난양공주','진채봉'].forEach((name,i)=>{
+      const node=document.createElement('div'); node.className='wife'; node.textContent=name;
+      const angle=(i/8)*Math.PI*2-Math.PI/2; const r=42;
+      node.style.left=`calc(50% + ${Math.cos(angle)*r}% - 60px)`;
+      node.style.top=`calc(50% + ${Math.sin(angle)*r}% - 60px)`;
+      node.style.animation=`float ${4.8+i*.18}s ease-in-out infinite`;
+      orbit.appendChild(node);
+    });
+    orbit.dataset.ready='1';
+  }
+
+  function show(next){
+    if(next<0 || next>=slides.length) return;
+    const current = slides[index];
+    current.classList.remove('active');
+    if (next > index) current.classList.add('prev');
+    else current.classList.remove('prev');
+    index = next;
+    slides.forEach((s,i)=>{ if(i!==index) s.classList.remove('active'); });
+    slides[index].classList.add('active');
+    slides[index].classList.remove('prev');
+    counter.textContent = `${index+1} / ${slides.length}`;
+    fill.style.width = `${((index+1)/slides.length)*100}%`;
+    title.textContent = slides[index].dataset.title || '';
+  }
+
+  placeOrbit();
+  show(0);
+  document.addEventListener('keydown', e => {
+    if(['ArrowRight',' ','PageDown','Enter'].includes(e.key)){ e.preventDefault(); show(index+1); }
+    if(['ArrowLeft','Backspace','PageUp'].includes(e.key)){ e.preventDefault(); show(index-1); }
+    if(e.key === 'Home') show(0);
+    if(e.key === 'End') show(slides.length-1);
+  });
+  stage.addEventListener('click', e => { if(!e.target.closest('.ui')) show(index+1); });
+  stage.addEventListener('touchstart', e => startX = e.touches[0].clientX, {passive:true});
+  stage.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - startX;
+    if(Math.abs(dx) > 45) show(index + (dx < 0 ? 1 : -1));
+  }, {passive:true});
+})();
+</script>
+</body>
+</html>
+
+
+
