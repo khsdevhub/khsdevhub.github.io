@@ -1,0 +1,526 @@
+body {
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+    background: white;
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    font-size: 24px;
+    font-weight: normal;
+    z-index: 3;
+}
+
+h1 span {
+    margin-left: 8px;
+    font-size: 14px;
+    color: #777;
+}
+
+h1 em {
+    margin-left: 7px;
+    color: black;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: normal;
+}
+
+.cell {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 180px;
+    height: 180px;
+    cursor: pointer;
+    transition: filter 0.3s, opacity 0.3s;
+    will-change: transform;
+}
+
+.wall {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 180px;
+    height: 180px;
+    border: 3px solid black;
+    border-radius: var(--wall-radius, 45% 55% 50% 50%);
+    animation: breathe 3s infinite ease-in-out;
+    transition: border-width 0.3s, transform 0.3s;
+}
+
+.cell:hover .wall {
+    animation: hoverWave 1.2s infinite ease-in-out;
+}
+
+.wall::before {
+    content: "";
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    width: 154px;
+    height: 154px;
+    border: 2px solid black;
+    border-radius: var(--inner-radius, 50% 45% 55% 50%);
+    opacity: 0.4;
+    animation: breatheInner 4s infinite ease-in-out;
+}
+
+.cell:hover .wall::before {
+    animation: hoverWave2 1.5s infinite ease-in-out;
+}
+
+.nucleus {
+    position: absolute;
+    left: 70px;
+    top: 70px;
+    width: 40px;
+    height: 40px;
+    background: black;
+    border-radius: 50%;
+}
+
+.organelle {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: black;
+    border-radius: 50%;
+    opacity: 0.45;
+    animation: drift 5s infinite ease-in-out;
+}
+
+.organelle.a {
+    left: 48px;
+    top: 56px;
+}
+
+.organelle.b {
+    left: 118px;
+    top: 66px;
+    animation-delay: -1.4s;
+}
+
+.organelle.c {
+    left: 88px;
+    top: 122px;
+    animation-delay: -2.7s;
+}
+
+.status {
+    position: fixed;
+    left: 20px;
+    bottom: 20px;
+    z-index: 3;
+    width: 150px;
+    font-size: 12px;
+    color: #777;
+}
+
+.stat-item {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 0;
+    border-bottom: 1px solid #eee;
+    outline: none;
+}
+
+.status b {
+    color: black;
+    font-weight: normal;
+}
+
+.stat-item::after {
+    content: attr(data-tip);
+    position: absolute;
+    left: 0;
+    bottom: calc(100% + 8px);
+    width: 230px;
+    padding: 8px 9px;
+    border: 1px solid black;
+    background: white;
+    color: black;
+    font-size: 12px;
+    line-height: 1.45;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(4px);
+    transition: opacity 0.15s, transform 0.15s;
+}
+
+.stat-item:hover::after,
+.stat-item:focus::after {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#message {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 3;
+    max-width: 400px;
+    margin: 0;
+    color: #777;
+    font-size: 13px;
+    text-align: right;
+}
+
+.controls {
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    z-index: 3;
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+}
+
+button {
+    appearance: none;
+    border: 1px solid black;
+    background: white;
+    padding: 6px 10px;
+    font: inherit;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: black;
+    color: white;
+}
+
+button.active {
+    background: black;
+    color: white;
+}
+
+.control-popover,
+.info-popover {
+    position: absolute;
+    top: 36px;
+    right: 0;
+    display: grid;
+    gap: 7px;
+    min-width: 108px;
+    padding: 8px;
+    border: 1px solid black;
+    background: white;
+}
+
+.info-popover {
+    width: 240px;
+    gap: 8px;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.info-popover strong {
+    font-weight: normal;
+    color: black;
+}
+
+.info-popover p {
+    margin: 0;
+    color: #555;
+}
+
+.graph-block {
+    display: grid;
+    gap: 6px;
+    padding-top: 5px;
+    border-top: 1px solid #eee;
+}
+
+.graph-title {
+    color: #777;
+    font-size: 12px;
+}
+
+#statGraph {
+    width: 220px;
+    height: 92px;
+    display: block;
+    border: 1px solid #eee;
+    background: white;
+}
+
+.graph-legend {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3px 10px;
+    color: #777;
+    font-size: 11px;
+}
+
+.graph-legend span::before {
+    content: "";
+    display: inline-block;
+    width: 12px;
+    height: 1px;
+    margin-right: 5px;
+    vertical-align: middle;
+    background: black;
+}
+
+.graph-legend span:nth-child(2)::before {
+    border-top: 1px dashed black;
+    background: transparent;
+}
+
+.graph-legend span:nth-child(3)::before {
+    height: 2px;
+}
+
+.graph-legend span:nth-child(4)::before {
+    opacity: 0.45;
+}
+
+.name-field {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 6px;
+    padding-top: 4px;
+    border-top: 1px solid #eee;
+}
+
+.name-field label {
+    grid-column: 1 / -1;
+    color: #777;
+    font-size: 12px;
+}
+
+.name-field input {
+    min-width: 0;
+    border: 1px solid black;
+    padding: 6px 8px;
+    font: inherit;
+    font-size: 12px;
+    outline: none;
+}
+
+.name-field input:focus {
+    background: #f7f7f7;
+}
+
+.control-popover[hidden],
+.info-popover[hidden] {
+    display: none;
+}
+
+.control-popover button {
+    width: 100%;
+    text-align: left;
+}
+
+.cell.curious .wall {
+    animation-duration: 1.6s;
+}
+
+.cell.attached .wall {
+    border-width: 4px;
+    animation-duration: 2.1s;
+}
+
+.cell.free .wall {
+    border-width: 2px;
+    animation-duration: 3.4s;
+}
+
+.cell.free .organelle {
+    animation-duration: 6s;
+}
+
+.cell.startled .wall {
+    animation: startled 0.45s infinite steps(2);
+}
+
+.cell.tired {
+    opacity: 0.46;
+    filter: blur(0.3px);
+}
+
+.cell.tired .wall,
+.cell.tired .wall::before {
+    animation-duration: 5.5s;
+}
+
+.cell.resting .wall {
+    animation-duration: 6s;
+}
+
+.cell.resting .nucleus {
+    transform: scale(0.75);
+}
+
+.cell.stop .wall {
+    border-style: dashed;
+}
+
+.cell.burst .wall {
+  animation: burstWall 0.7s forwards;
+}
+
+.cell.burst .wall::before {
+  animation: burstWall2 0.7s forwards;
+}
+
+.cell.burst .nucleus {
+  animation: burstNucleus 0.7s forwards;
+}
+
+.cell.newborn .wall {
+  animation: bornWall 0.8s ease-out,
+             breathe 3s infinite ease-in-out 0.8s;
+}
+
+.cell.newborn .wall::before {
+  animation: bornWall 0.8s ease-out,
+             breatheInner 4s infinite ease-in-out 0.8s;
+}
+
+.cell.newborn .nucleus {
+  animation: bornNucleus 0.8s ease-out;
+}
+
+@keyframes breathe {
+    0% {
+    transform: scale(1);
+    }
+    50% {
+    transform: scale(1.018);
+    }
+    100% {
+    transform: scale(1);
+    }
+}
+
+@keyframes breatheInner {
+    0% {
+    transform: scale(1);
+    }
+    50% {
+    transform: scale(0.985);
+    }
+    100% {
+    transform: scale(1);
+    }
+}
+
+@keyframes hoverWave {
+    0% {
+    transform: scale(1.01) rotate(-1deg);
+    }
+    25% {
+    transform: scale(1.03) rotate(1deg);
+    }
+    50% {
+    transform: scale(1.015) rotate(-0.7deg);
+    }
+    75% {
+    transform: scale(1.035) rotate(0.9deg);
+    }
+    100% {
+    transform: scale(1.01) rotate(-1deg);
+    }
+}
+
+@keyframes hoverWave2 {
+    0% {
+    transform: scale(0.98) rotate(1deg);
+    }
+    50% {
+    transform: scale(1.01) rotate(-1deg);
+    }
+    100% {
+    transform: scale(0.98) rotate(1deg);
+    }
+}
+
+@keyframes burstWall {
+    0% {
+    transform: scale(1);
+    opacity: 1;
+    border-width: 3px;
+    }
+    60% {
+    transform: scale(1.5);
+    opacity: 0.7;
+    border-radius: 30% 70% 65% 35%;
+    }
+    100% {
+    transform: scale(2.2);
+    opacity: 0;
+    border-width: 1px;
+    }
+}
+
+@keyframes burstWall2 {
+    0% {
+    transform: scale(1);
+    opacity: 0.4;
+    }
+    100% {
+    transform: scale(1.8);
+    opacity: 0;
+    }
+}
+
+@keyframes burstNucleus {
+    0% {
+    transform: scale(1);
+    opacity: 1;
+    }
+    100% {
+    transform: scale(0.1);
+    opacity: 0;
+    }
+}
+
+@keyframes bornWall {
+    0% {
+    transform: scale(0.2);
+    opacity: 0;
+    }
+    100% {
+    transform: scale(1);
+    opacity: 1;
+    }
+}
+
+@keyframes bornNucleus {
+    0% {
+    transform: scale(0);
+    opacity: 0;
+    }
+    100% {
+    transform: scale(1);
+    opacity: 1;
+    }
+}
+
+@keyframes drift {
+    0% {
+        transform: translate(0, 0);
+    }
+    50% {
+        transform: translate(8px, -6px);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes startled {
+    0% {
+        transform: translate(-3px, 2px) scale(1.02);
+    }
+    100% {
+        transform: translate(3px, -2px) scale(0.98);
+    }
+}
