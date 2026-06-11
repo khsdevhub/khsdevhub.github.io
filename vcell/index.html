@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VCell | 가상 세포</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <h1>VCell <em id="cellName" hidden></em> <span id="mood">차분함</span></h1>
+
+  <div class="cell" id="cell">
+    <div class="wall"></div>
+    <div class="organelle a"></div>
+    <div class="organelle b"></div>
+    <div class="organelle c"></div>
+    <div class="nucleus"></div>
+  </div>
+
+  <div class="status">
+    <div class="stat-item" tabindex="0" data-tip="움직임과 반응 속도에 영향을 줍니다. 낮아지면 거의 움직이지 못합니다.">
+      <span>energy</span><b id="energyText">72</b>
+    </div>
+    <div class="stat-item" tabindex="0" data-tip="낮아질수록 자율행동 경향이 커지고, 높을수록 움직임에 더 관심을 보입니다.">
+      <span>curiosity</span><b id="curiosityText">38</b>
+    </div>
+    <div class="stat-item" tabindex="0" data-tip="사용자와의 유대감입니다. 일정 구간에서 마우스 쪽으로 가장 적극적으로 접근합니다.">
+      <span>bond</span><b id="bondText">12</b>
+    </div>
+    <div class="stat-item" tabindex="0" data-tip="자극으로 인한 긴장도입니다. 높아지면 떨림과 회피 반응이 강해집니다.">
+      <span>stress</span><b id="stressText">8</b>
+    </div>
+  </div>
+
+  <p id="message">가까이 움직이고, 잠시 기다린 뒤 부드럽게 클릭해보세요.</p>
+
+  <div class="controls">
+    <button id="feedBtn">먹이 주기</button>
+    <button id="sootheBtn">안정 신호</button>
+    <button id="infoBtn" aria-expanded="false" aria-controls="infoPanel">정보</button>
+    <button id="controlBtn" aria-expanded="false" aria-controls="controlPanel">컨트롤</button>
+
+    <div class="info-popover" id="infoPanel" hidden>
+      <strong>VCell 정보</strong>
+      <p>VCell은 마우스 움직임과 신호에 반응하는 가상 세포입니다.</p>
+      <p>더블클릭하면 burst 후 새로운 위치에서 다시 형성됩니다.</p>
+      <p>스탯 위에 마우스를 올리면 각 수치의 역할을 볼 수 있습니다.</p>
+
+      <div class="graph-block">
+        <div class="graph-title">stat history</div>
+        <canvas id="statGraph" width="220" height="92"></canvas>
+        <div class="graph-legend">
+          <span>energy</span>
+          <span>curiosity</span>
+          <span>bond</span>
+          <span>stress</span>
+        </div>
+      </div>
+
+      <div class="name-field">
+        <label for="nameInput">이름</label>
+        <input id="nameInput" maxlength="14" autocomplete="off" placeholder="이름 붙이기" />
+        <button id="saveNameBtn">저장</button>
+      </div>
+    </div>
+
+    <div class="control-popover" id="controlPanel" hidden>
+      <button id="callBtn">호출 신호</button>
+      <button id="observeBtn">관찰 모드</button>
+      <button id="restBtn">휴식 명령</button>
+    </div>
+  </div>
+
+  <script src="./script.js"></script>
+</body>
+</html>
